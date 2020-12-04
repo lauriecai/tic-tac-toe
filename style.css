@@ -1,0 +1,38 @@
+/* basic reset */
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* custom properties */
+:root{
+    --red: #EB5A54;
+    --yellow: #F6D74F;
+}
+
+/* global */
+html {
+    font-size: 10px;
+    background-color: var(--yellow);
+}
+body{
+    max-width: 60rem;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+/* header */
+header{
+    margin-top: 20%;
+    text-align: center;
+    color: var(--red);
+}
+.title{
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+}
+.subtext{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.6rem;
+}
