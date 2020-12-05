@@ -11,6 +11,7 @@
     --accent-red: #f7928f;
     --yellow: #F6D74F;
     --accent-yellow: #ffea8c;
+    --dark-yellow: #cab039;
 }
 
 /* global */
@@ -67,4 +68,32 @@ header{
     position: relative;
     background-color: rgb(162, 206, 221);
     border-radius: 4px;
+}
+
+/* player markers */
+.heart{
+    background-color: var(--accent-red);
+    color: var(--red);
+}
+.bolt{
+    background-color: var(--accent-yellow);
+    color: var(--dark-yellow);
+}
+.heart::after{
+    content: '\f004';
+    color: var(--red);
+}
+.bolt::after{
+    content: '\f0e7';
+    color: var(--dark-yellow);
+}
+.heart::after, .bolt::after{
+    font-family: 'Font Awesome 5 Free';
+    font-size: 8rem;
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8rem;
 }
