@@ -8,7 +8,9 @@
 /* custom properties */
 :root{
     --red: #EB5A54;
+    --accent-red: #f7928f;
     --yellow: #F6D74F;
+    --accent-yellow: #ffea8c;
 }
 
 /* global */
@@ -20,6 +22,7 @@ body{
     max-width: 60rem;
     margin: 0 auto;
     height: 100vh;
+    /* border: 1px dotted green; */
 }
 
 /* header */
@@ -27,6 +30,7 @@ header{
     margin-top: 20%;
     text-align: center;
     color: var(--red);
+    margin-bottom: 5rem;
 }
 .title{
     font-family: 'Pacifico', cursive;
@@ -35,4 +39,32 @@ header{
 .subtext{
     font-family: 'JetBrains Mono', monospace;
     font-size: 1.6rem;
+}
+
+/* main */
+.gameboard{
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 6px;
+}
+.squares{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 1rem;
+    /* border: 1px dotted green; */
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    border-radius: 6px;
+}
+.square{
+    position: relative;
+    background-color: rgb(162, 206, 221);
+    border-radius: 4px;
 }
