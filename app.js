@@ -1,29 +1,34 @@
-// gameboard module
-const gameboard = (() => {
-    // properties
-    const squares = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    return {squares};
-    // methods
-        // -start game
-        // -switch player turns
-        // -detect winner/tie
-        // -announce results
-})();
+// selectors
+let squares = document.getElementsByClassName('square')
 
-// generate players
-const newPlayer = (name, marker) => {
-    return {name, marker};
-}
-
+// players
 const playerOne = newPlayer('Tiffany', 'Bolt');
 const playerTwo = newPlayer('Laurie', 'Heart');
 
-
-// selectors
-
+// variables
+let activePlayer = 0;
 
 // event listeners
+for (i = 0; i < squares.length; i++) {
+    squares[i].addEventListener('click', showMarker);
+}
 
+// functions    
+function newPlayer(name, marker, win = false) {
+    return {name, marker, win};
+}
 
-// functions
+// show marker
+function showMarker(e) {
+    const click = e.target;
+    if (activePlayer == 0) {
+        click.classList.add('bolt');
+    } else {
+        click.classList.add('heart');
+    }
+    nextPlayer();
+}
 
+function nextPlayer() {
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+}
