@@ -1,37 +1,47 @@
-// selectors
-let squares = document.getElementsByClassName('square')
-let playerName = document.querySelector('.player-name');
+// players class - generates players
+class Player {
+    constructor(name, marker) {
+        this.name = name;
+        this.marker = marker;
+    }
+}
 
-// players
-const playerOne = newPlayer('Tiffany', 'Bolt');
-const playerTwo = newPlayer('Laurie', 'Heart');
+const playerOne = new Player('Tiffany', 'Bolt');
+const playerTwo = new Player('Laurie', 'Heart');
 
-// variables
+// UI class - handles UI tasks
+class UI {
+
+    static showMarker(el) {
+        if (activePlayer == 0) {
+            el.classList.add('bolt');
+            el.classList.add('marked');
+        } else {
+            el.classList.add('heart');
+            el.classList.add('marked');
+        }
+    }
+
+    static nextPlayer() {
+        activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+    }
+
+    static showPlayerTurn() {
+        const playerTurn = document.querySelector('.player-name');
+        activePlayer === 0 ? playerTurn.textContent = 'Player 1' : playerTurn.textContent = 'Player 2';
+    }
+}
+
+// events
 let activePlayer = 0;
 
-// event listeners
-for (i = 0; i < squares.length; i++) {
-    squares[i].addEventListener('click', showMarker);
-}
+document.querySelector('.squares').addEventListener('click', (e) => {
+    // display player marker
+    UI.showMarker(e.target);
 
-// functions    
-function newPlayer(name, marker, win = false) {
-    return {name, marker, win};
-}
+    // next player
+    UI.nextPlayer();
 
-// show marker
-function showMarker(e) {
-    const click = e.target;
-    if (activePlayer == 0) {
-        click.classList.add('bolt');
-        playerName.textContent = 'Player 2';
-    } else {
-        click.classList.add('heart');
-        playerName.textContent = 'Player 1';
-    }
-    nextPlayer();
-}
-
-function nextPlayer() {
-    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-}
+    // tell next player to make their move
+    UI.showPlayerTurn();
+})
