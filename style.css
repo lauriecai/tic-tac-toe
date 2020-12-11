@@ -27,7 +27,7 @@ body{
 
 /* header */
 header{
-    margin-top: 20%;
+    margin-top: 10%;
     text-align: center;
     color: var(--red);
     margin-bottom: 5rem;
@@ -75,6 +75,7 @@ header{
 }
 .square:hover{
     cursor: pointer;
+    background-color: rgb(142, 191, 208);
 }
 
 /* player markers */
