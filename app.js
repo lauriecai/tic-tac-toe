@@ -65,6 +65,10 @@ const game = (() => {
     let winnerDeclared = false;
     let remainingSpots = 9;
 
+    // selectors
+    let subtext = document.querySelector('.subtext'); // display winner/tie
+    let playerName = document.querySelector('.player-name'); // purpose: alert player turn
+
     // winning conditions
     const winningAxes = [
         [0,1,2],
@@ -80,28 +84,30 @@ const game = (() => {
     // check winner
     function checkWinner() {
         winningAxes.forEach((item, index) => { // [0, 1, 2, 3, 4, 5, 6, 7]
-            if (gameBoard.board[item[0]] === activePlayer.marker && gameBoard.board[item[1]] === activePlayer.marker && gameBoard.board[item[2]] === activePlayer.marker) {
+            if (gameBoard.board[item[0]] === this.activePlayer.marker && gameBoard.board[item[1]] === this.activePlayer.marker && gameBoard.board[item[2]] === this.activePlayer.marker) {
                 console.log('winner!');
-                subtext.innerHTML = `<b>${activePlayer.name} wins!</b>`;
-                winnerDeclared = true;
+                subtext.innerHTML = `<b>${this.activePlayer.name} wins!</b>`;
+                this.winnerDeclared = true;
             } 
         })
     }
 
     // alert next player
     function alertNextPlayer() {
-        let playerName = document.querySelector('.player-name');
-        activePlayer === playerOne ? playerName.textContent = 'Player 2' : playerName.textContent = 'Player 1';
+        this.activePlayer === playerOne ? playerName.textContent = 'Player 2' : playerName.textContent = 'Player 1';
     }
 
     // next player
     function nextPlayer() {
-        activePlayer === playerOne ? activePlayer = playerTwo : activePlayer = playerOne;
+        this.activePlayer === playerOne ? this.activePlayer = playerTwo : this.activePlayer = playerOne;
+        console.log('nextPlayer() function ran')
+        console.log('active player: ' + activePlayer.name);
     }
+
+
 
     // declare tie
     function declareTie() {
-        let subtext = document.querySelector('.subtext');
         subtext.innerHTML = "<b>Tie game!</b>";
     }
 
