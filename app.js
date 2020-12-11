@@ -104,8 +104,6 @@ const game = (() => {
         console.log('active player: ' + activePlayer.name);
     }
 
-
-
     // declare tie
     function declareTie() {
         subtext.innerHTML = "<b>Tie game!</b>";
