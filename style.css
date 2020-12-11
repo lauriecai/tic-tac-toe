@@ -23,7 +23,6 @@ body{
     max-width: 60rem;
     margin: 0 auto;
     height: 100vh;
-    /* border: 1px dotted green; */
 }
 
 /* header */
@@ -73,6 +72,9 @@ header{
     position: relative;
     background-color: rgb(162, 206, 221);
     border-radius: 4px;
+}
+.square:hover{
+    cursor: pointer;
 }
 
 /* player markers */
